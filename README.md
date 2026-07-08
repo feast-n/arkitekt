@@ -431,19 +431,5 @@ Proyek ini dilisensikan di bawah **MIT License** — artinya kamu bebas untuk:
 <sub>Built for learning · Powered by curiosity · Free forever</sub>
 
 </div>
-```
-
----
-
-### Penjelasan singkat apa yang ada di README ini:
-
-| Bagian | Fungsi |
-|--------|--------|
-| **Header & Badge** | Logo + semua shield.io badge (stars, forks, license, tech stack) langsung terlihat di atas |
-| **Disclaimer** | Tabel kontras yang sangat jelas: BUKAN komersil vs ADALAH edukasi |
-| **Mermaid Diagram** | Diagram alur belajar dan kontribusi yang interaktif di GitHub |
-| **ASCII Preview** | Representasi visual tampilan web tanpa perlu screenshot asli |
-| **Collapsible Sections** | `<details>` tag untuk detail fitur dan panduan kontribusi agar tidak terlalu panjang |
-| **Emoji Convention** | Emoji di setiap heading dan tabel untuk meningkatkan keterbacaan |
 | **Roadmap Checklist** | Progress bar visual dengan badge status |
 | **Footer** | Badge "Not For Sale", "Education Only", dan "Made in Indonesia" sebagai penegak ulang |
