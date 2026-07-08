@@ -1,0 +1,200 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-family: 'Manrope', sans-serif; background: #E6E4DF; }
+body { background: #E6E4DF; color: #0A0A0A; overflow-x: hidden; }
+
+.loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: #0A0A0A;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.loader-text {
+  font-family: 'Syncopate', sans-serif;
+  color: #fff; font-size: 14px; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.loader-bar-track {
+  width: 200px; height: 1px;
+  background: rgba(255,255,255,0.1);
+  position: relative; overflow: hidden;
+}
+.loader-bar {
+  position: absolute; top: 0; left: 0;
+  height: 100%; width: 0%;
+  background: #fff;
+}
+
+.noise-overlay {
+  position: fixed; inset: 0; z-index: 9000;
+  opacity: 0.04; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+.wrapper {
+  position: relative; z-index: 20;
+  background: #E6E4DF;
+  margin-bottom: 100vh;
+  will-change: transform;
+  box-shadow: 0 50px 100px rgba(0,0,0,0.2);
+}
+
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 50; mix-blend-mode: difference;
+  padding: 24px;
+}
+@media (min-width: 1024px) { .nav { padding: 32px 48px; } }
+.nav a, .nav span, .nav button { color: #fff !important; }
+
+.hero { height: 100vh; position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr; }
+@media (min-width: 1024px) { .hero { grid-template-columns: repeat(12, 1fr); } }
+.hero-left {
+  grid-column: span 1; display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 0 24px 48px;
+  position: relative; z-index: 2;
+}
+@media (min-width: 1024px) {
+  .hero-left { grid-column: span 7; padding: 0 0 80px 48px; }
+}
+.hero-right {
+  grid-column: span 1; position: relative;
+  overflow: hidden; height: 40vh;
+}
+@media (min-width: 1024px) {
+  .hero-right { grid-column: span 5; grid-row: span 1; height: 100vh; }
+}
+.hero-right img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.8);
+}
+.hero-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, #E6E4DF, transparent, transparent);
+}
+@media (max-width: 1023px) {
+  .hero-img-overlay {
+    background: linear-gradient(to bottom, #E6E4DF, transparent 40%, transparent 60%, #E6E4DF);
+  }
+}
+
+.word-wrap { overflow: hidden; display: inline-block; vertical-align: bottom; }
+.word-inner {
+  display: inline-block;
+  transform: translateY(120%);
+}
+
+.anim-section {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.project-card {
+  position: relative; overflow: hidden;
+  border-radius: 4px; cursor: pointer;
+  transform-style: preserve-3d;
+}
+.project-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.5s cubic-bezier(0.25,1,0.5,1);
+}
+.project-card:hover img { transform: scale(1.05); }
+.project-card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 50%);
+  opacity: 0; transition: opacity 0.5s ease;
+  display: flex; align-items: flex-end; padding: 24px;
+}
+.project-card:hover .project-card-overlay { opacity: 1; }
+
+.exh-card {
+  position: relative; overflow: hidden;
+  border-radius: 2px; cursor: pointer;
+}
+.exh-card img {
+  width: 100%; height: 256px; object-fit: cover;
+  filter: grayscale(100%); opacity: 0.9;
+  transition: all 0.7s ease;
+}
+.exh-card:hover img {
+  filter: grayscale(0%); opacity: 1;
+  transform: scale(1.05);
+}
+
+.footer-sticky {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  height: 100vh; z-index: 1;
+  background: #050505;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.footer-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.2; filter: grayscale(100%);
+}
+.footer-gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, #000 0%, transparent 100%);
+}
+
+.cursor-dot {
+  position: fixed; width: 8px; height: 8px;
+  background: #fff; border-radius: 50%;
+  pointer-events: none; z-index: 9998;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+.cursor-ring {
+  position: fixed; width: 40px; height: 40px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  pointer-events: none; z-index: 9997;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, border-color 0.3s;
+}
+.cursor-dot.hovering { width: 4px; height: 4px; }
+.cursor-ring.hovering { width: 60px; height: 60px; border-color: rgba(255,255,255,0.8); }
+
+@media (max-width: 1023px) {
+  .cursor-dot, .cursor-ring { display: none !important; }
+}
+
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 45;
+  background: #0A0A0A;
+  transform: translateY(-100%);
+  transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+  display: flex; align-items: center; justify-content: center;
+}
+.mobile-menu.open { transform: translateY(0); }
+.mobile-menu a {
+  display: block; font-family: 'Syncopate', sans-serif;
+  font-size: 32px; font-weight: 700; color: #fff;
+  text-decoration: none; padding: 12px 0;
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: #C49A5A; }
+
+::-webkit-scrollbar { width: 0; }
+
+.toast {
+  position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px);
+  background: #0A0A0A; color: #fff; padding: 16px 32px;
+  border-radius: 4px; font-size: 14px; font-weight: 300;
+  z-index: 10000; opacity: 0;
+  transition: all 0.5s cubic-bezier(0.25,1,0.5,1);
+  pointer-events: none;
+}
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+.deco-line {
+  width: 1px; height: 60px;
+  background: linear-gradient(to bottom, #d1d5db 0%, transparent 100%);
+}

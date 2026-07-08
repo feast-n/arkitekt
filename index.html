@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARKITEKT — Studio Arsitektur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#E6E4DF',
+            dark: '#0A0A0A',
+            accent: '#374336',
+            'accent-hover': '#2c362b',
+            card: '#111111',
+            border: 'rgba(255,255,255,0.08)',
+          },
+          fontFamily: {
+            display: ['Syncopate', 'sans-serif'],
+            body: ['Manrope', 'sans-serif'],
+          },
+          maxWidth: {
+            container: '1600px',
+            content: '1400px',
+            nav: '100%',
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body>
+  <div class="loader" id="loader">
+    <div class="loader-text">ARKITEKT</div>
+    <div class="loader-bar-track">
+      <div class="loader-bar" id="loaderBar"></div>
+    </div>
+  </div>
+
+  <div class="noise-overlay"></div>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <div class="toast" id="toast">Pesan terkirim!</div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="text-center">
+      <a href="#about" onclick="closeMobile()">Tentang</a>
+      <a href="#projects" onclick="closeMobile()">Proyek</a>
+      <a href="#exhibitions" onclick="closeMobile()">Pameran</a>
+      <a href="#contact" onclick="closeMobile()">Kontak</a>
+    </nav>
+  </div>
+
+  <footer class="footer-sticky">
+    <img src="https://picsum.photos/seed/arkitekt-footer/1920/1080.jpg" alt="" class="footer-bg" />
+    <div class="footer-gradient"></div>
+    <div class="relative z-10 text-center px-6 w-full max-w-container mx-auto">
+      <div class="mb-8">
+        <span class="font-display text-[10px] font-medium tracking-[0.3em] uppercase text-gray-500">Mari Berkolaborasi</span>
+      </div>
+      <a href="mailto:hello@arkitekt.id" class="inline-block font-display text-4xl md:text-6xl lg:text-8xl font-semibold text-white hover:text-accent transition-colors duration-300" style="text-decoration:none; line-height:1.1;">
+        HELLO@<br class="sm:hidden" />ARKITEKT.ID
+      </a>
+      <div class="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 pt-8">
+        <div class="flex items-center gap-6">
+          <a href="#" class="text-gray-500 hover:text-white transition-colors duration-300 text-xs tracking-widest uppercase font-medium">Instagram</a>
+          <a href="#" class="text-gray-500 hover:text-white transition-colors duration-300 text-xs tracking-widest uppercase font-medium">Behance</a>
+          <a href="#" class="text-gray-500 hover:text-white transition-colors duration-300 text-xs tracking-widest uppercase font-medium">LinkedIn</a>
+        </div>
+        <span class="text-gray-600 text-xs tracking-widest font-medium">© 2024 ARKITEKT</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="wrapper">
+    <nav class="nav">
+      <div class="flex items-center justify-between max-w-container mx-auto">
+        <a href="#" class="font-display text-lg font-semibold tracking-wider" style="text-decoration:none;">ARKITEKT</a>
+        <div class="hidden lg:flex items-center gap-10">
+          <a href="#about" class="text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-60 transition-opacity duration-300" style="text-decoration:none;">Tentang</a>
+          <a href="#projects" class="text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-60 transition-opacity duration-300" style="text-decoration:none;">Proyek</a>
+          <a href="#exhibitions" class="text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-60 transition-opacity duration-300" style="text-decoration:none;">Pameran</a>
+          <a href="#contact" class="text-[11px] font-medium tracking-[0.2em] uppercase hover:opacity-60 transition-opacity duration-300" style="text-decoration:none;">Kontak</a>
+        </div>
+        <button class="lg:hidden flex flex-col gap-1.5 group" id="menuBtn" aria-label="Menu">
+          <span class="block w-6 h-[1px] bg-white transition-all duration-300 origin-center" id="menuLine1"></span>
+          <span class="block w-4 h-[1px] bg-white transition-all duration-300 ml-auto" id="menuLine2"></span>
+        </button>
+      </div>
+    </nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="mb-6">
+      <span class="text-[10px] font-medium tracking-[0.3em] uppercase text-gray-500 hero-fade" style="opacity:0;">Praktik Arsitektur Kontemporer — Sejak 2018</span>
+    </div>
+    <h1 class="font-display font-semibold leading-[0.85] tracking-tighter text-[36px] sm:text-[60px] lg:text-[104px] text-dark">
+      <span class="hero-word"><span class="word-wrap"><span class="word-inner">Reinterpretasi</span></span></span><br />
+      <span class="hero-word"><span class="word-wrap"><span class="word-inner">Ruang</span></span></span>
+      <span class="hero-word"><span class="word-wrap"><span class="word-inner">Dan</span></span></span><br />
+      <span class="hero-word text-gray-400"><span class="word-wrap"><span class="word-inner">Konteks</span></span></span>
+    </h1>
+    <div class="mt-8 lg:mt-12 flex items-center gap-6 hero-fade" style="opacity:0;">
+      <a href="#projects" class="inline-flex items-center gap-3 bg-accent text-white text-[10px] font-semibold tracking-[0.25em] uppercase px-8 py-4 hover:bg-accent-hover transition-colors duration-300" style="text-decoration:none; border-radius:2px;">
+        Portofolio
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+      <span class="hidden sm:block text-[12px] font-light text-gray-500">Jelajahi karya terbaru kami</span>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="py-24 lg:py-40 px-6 lg:px-12">
+  <div class="max-w-content mx-auto anim-section">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12">
+      <div class="lg:col-span-7">
+        <span class="text-[10px] font-medium tracking-[0.3em] uppercase text-gray-500 mb-8 block">Filosofi Studio</span>
+        <h2 class="font-display text-[30px] md:text-[48px] lg:text-[60px] font-semibold leading-[1.1] tracking-tighter text-dark">
+          Arsitektur bukan sekadar membangun; ia adalah menyelaraskan urgensi manusia dengan integritas lahan.
+        </h2>
+      </div>
+      <div class="lg:col-span-5 flex flex-col justify-end">
+        <p class="text-[14px] font-light leading-[1.625] text-gray-600 mb-8">
+          Berbasis di Jakarta, ARKITEKT beroperasi di persimpangan antara desain minimalis dan fungsionalitas tropis. Kami menantang batas-batas tipologi tradisional melalui riset material yang presisi dan kepekaan terhadap ritme kehidupan penghuninya.
+        </p>
+        <p class="text-[14px] font-light leading-[1.625] text-gray-600 mb-10">
+          Proses desain kami bersifat kolaboratif dan iteratif, memastikan setiap goresan memiliki resonansi dengan lingkungan sekitar.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+    <div class="flex justify-center"><div class="deco-line"></div></div>
+
+    <section id="projects" class="py-24 lg:py-40 px-6 lg:px-12">
+      <div class="max-w-content mx-auto">
+        <div class="anim-section mb-16 lg:mb-24">
+          <span class="text-[10px] font-medium tracking-[0.3em] uppercase text-gray-500 mb-6 block">Proyek Pilihan</span>
+          <div class="flex items-end justify-between">
+            <h2 class="font-display text-[36px] md:text-[48px] lg:text-[60px] font-semibold leading-[1.1] tracking-tighter text-dark">
+              Karya<br class="hidden lg:block" /> Terbaru
+            </h2>
+            <a href="#" class="hidden md:inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.25em] uppercase text-dark hover:opacity-60 transition-opacity duration-300" style="text-decoration:none;">
+              Semua Proyek
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 anim-section">
+          <div class="project-card aspect-[4/5]" data-tilt>
+            <img src="assets/rumahhijau.jpg" alt="Rumah Hijau" loading="lazy" />
+            <div class="project-card-overlay">
+              <div>
+                <span class="text-[10px] font-medium tracking-[0.3em] uppercase text-white/60 block mb-2">Residensial — 2024</span>
+                <h3 class="font-display text-xl md:text-2xl font-semibold text-white tracking-tight">Rumah Hijau</h3>
+                <p class="text-[12px] font-light text-white/70 mt-2">Bandung</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-card aspect-[4/5] md:mt-16" data-tilt>
+            <img src="assets/rumahputih.webp" alt="Galeri Putih" loading="lazy" />
+            <div class="project-card-overlay">
+              <div>
+                <span class="text-[10px] font-medium tracking-[0.3em] uppercase text-white/60 block mb-2">Komersial — 2023</span>
+                <h3 class="font-display text-xl md:text-2xl font-semibold text-white tracking-tight">Galeri Putih</h3>
+                <p class="text-[12px] font-light text-white/70 mt-2">Tangerang</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-card aspect-[4/5]" data-tilt>
+            <img src="assets/openspace.jpg" alt="Paviliun Udara" loading="lazy" />
+            <div class="project-card-overlay">
+              <div>
+                <span class="text-[10px] font-medium tracking-[0.3em] uppercase text-white/60 block mb-2">Publik — 2023</span>
+                <h3 class="font-display text-xl md:text-2xl font-semibold text-white tracking-tight">Open Space</h3>
+                <p class="text-[12px] font-light text-white/70 mt-2">Yogyakarta</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-card aspect-[4/5] md:mt-16" data-tilt>
+            <img src="assets/rumahbatu.jpg" alt="Rumah Batu" loading="lazy" />
+            <div class="project-card-overlay">
+              <div>
+                <span class="text-[10px] font-medium tracking-[0.3em] uppercase text-white/60 block mb-2">Residensial — 2022</span>
+                <h3 class="font-display text-xl md:text-2xl font-semibold text-white tracking-tight">Rumah Batu</h3>
+                <p class="text-[12px] font-light text-white/70 mt-2">Bali</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:hidden mt-10 text-center anim-section">
+          <a href="#" class="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.25em] uppercase text-dark hover:opacity-60 transition-opacity duration-300" style="text-decoration:none;">
+            Semua Proyek
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="flex justify-center"><div class="deco-line"></div></div>
+
+    <section id="exhibitions" class="py-24 lg:py-40 px-6 lg:px-12">
+      <div class="max-w-content mx-auto">
+        <div class="anim-section mb-16 lg:mb-24">
+          <span class="text-[10px] font-medium tracking-[0.3em] uppercase text-gray-500 mb-6 block">Pameran & Publikasi</span>
+          <h2 class="font-display text-[36px] md:text-[48px] lg:text-[60px] font-semibold leading-[1.1] tracking-tighter text-dark">
+            Dipercaya<br class="hidden lg:block" /> Secara Global
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 anim-section">
+          <div class="exh-card">
+            <img src="assets/venicebien.webp" alt="Venice Biennale" loading="lazy" />
+            <div class="pt-4">
+              <h3 class="font-display text-sm font-semibold tracking-tight text-dark">Venice Biennale</h3>
+              <p class="text-[12px] font-light text-gray-500 mt-1">2023 — Italia</p>
+            </div>
+          </div>
+          <div class="exh-card">
+            <img src="assets/tokyoartfair.jpg" alt="Tokyo Art Fair" loading="lazy" />
+            <div class="pt-4">
+              <h3 class="font-display text-sm font-semibold tracking-tight text-dark">Tokyo Art Fair</h3>
+              <p class="text-[12px] font-light text-gray-500 mt-1">2023 — Jepang</p>
+            </div>
+          </div>
+          <div class="exh-card">
+            <img src="assets/dezeenawards.jpg" alt="Dezeen Awards" loading="lazy" />
+            <div class="pt-4">
+              <h3 class="font-display text-sm font-semibold tracking-tight text-dark">Dezeen Awards</h3>
+              <p class="text-[12px] font-light text-gray-500 mt-1">2022 — London</p>
+            </div>
+          </div>
+          <div class="exh-card">
+            <img src="assets/jakartabien.jpg" alt="Jakarta Biennale" loading="lazy" />
+            <div class="pt-4">
+              <h3 class="font-display text-sm font-semibold tracking-tight text-dark">Jakarta Biennale</h3>
+              <p class="text-[12px] font-light text-gray-500 mt-1">2022 — Jakarta</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="flex justify-center"><div class="deco-line"></div></div>
+
+    <section id="contact" class="py-24 lg:py-40 px-6 lg:px-12">
+      <div class="max-w-content mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 anim-section">
+          <div class="lg:col-span-5">
+            <span class="text-[10px] font-medium tracking-[0.3em] uppercase text-gray-500 mb-6 block">Hubungi Kami</span>
+            <h2 class="font-display text-[36px] md:text-[48px] lg:text-[60px] font-semibold leading-[1.1] tracking-tighter text-dark mb-10">
+              Mari<br />Bicara
+            </h2>
+            <div class="space-y-6">
+              <div>
+                <div class="text-[10px] font-medium tracking-[0.2em] uppercase text-gray-500 mb-2">Email</div>
+                <a href="mailto:hello@arkitekt.id" class="text-[14px] font-light text-dark hover:opacity-60 transition-opacity" style="text-decoration:none;">hello@arkitekt.id</a>
+              </div>
+              <div>
+                <div class="text-[10px] font-medium tracking-[0.2em] uppercase text-gray-500 mb-2">Telepon</div>
+                <a href="tel:+622112345678" class="text-[14px] font-light text-dark hover:opacity-60 transition-opacity" style="text-decoration:none;">+62 21 1234 5678</a>
+              </div>
+              <div>
+                <div class="text-[10px] font-medium tracking-[0.2em] uppercase text-gray-500 mb-2">Alamat</div>
+                <p class="text-[14px] font-light text-dark"><br />Jakarta Selatan</p>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-7">
+            <form id="contactForm" class="space-y-8">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div>
+                  <label class="text-[10px] font-medium tracking-[0.2em] uppercase text-gray-500 mb-3 block">Nama</label>
+                  <input type="text" required class="w-full bg-transparent border-b border-gray-300 focus:border-dark outline-none py-3 text-[14px] font-light text-dark transition-colors duration-300" placeholder="Nama lengkap" />
+                </div>
+                <div>
+                  <label class="text-[10px] font-medium tracking-[0.2em] uppercase text-gray-500 mb-3 block">Email</label>
+                  <input type="email" required class="w-full bg-transparent border-b border-gray-300 focus:border-dark outline-none py-3 text-[14px] font-light text-dark transition-colors duration-300" placeholder="email@contoh.com" />
+                </div>
+              </div>
+              <div>
+                <label class="text-[10px] font-medium tracking-[0.2em] uppercase text-gray-500 mb-3 block">Jenis Proyek</label>
+                <select required class="w-full bg-transparent border-b border-gray-300 focus:border-dark outline-none py-3 text-[14px] font-light text-dark transition-colors duration-300 appearance-none cursor-pointer">
+                  <option value="" disabled selected>Pilih jenis proyek</option>
+                  <option value="residensial">Residensial</option>
+                  <option value="komersial">Komersial</option>
+                  <option value="publik">Publik</option>
+                  <option value="interior">Interior</option>
+                  <option value="lainnya">Lainnya</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-[10px] font-medium tracking-[0.2em] uppercase text-gray-500 mb-3 block">Pesan</label>
+                <textarea rows="4" required class="w-full bg-transparent border-b border-gray-300 focus:border-dark outline-none py-3 text-[14px] font-light text-dark transition-colors duration-300 resize-none" placeholder="Ceritakan tentang proyek Anda..."></textarea>
+              </div>
+              <button type="submit" class="inline-flex items-center gap-3 bg-accent text-white text-[10px] font-semibold tracking-[0.25em] uppercase px-8 py-4 hover:bg-accent-hover transition-colors duration-300" style="border-radius:2px; border:none; cursor:pointer;">
+                Kirim Pesan
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div style="height: 2px; background: #E6E4DF;"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
