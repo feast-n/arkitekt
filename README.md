@@ -448,5 +448,3 @@ Proyek ini dilisensikan di bawah **MIT License** — artinya kamu bebas untuk:
 | **Emoji Convention** | Emoji di setiap heading dan tabel untuk meningkatkan keterbacaan |
 | **Roadmap Checklist** | Progress bar visual dengan badge status |
 | **Footer** | Badge "Not For Sale", "Education Only", dan "Made in Indonesia" sebagai penegak ulang |
-
-> **Catatan:** Ganti `feast-n` dengan username dan nama repositori GitHub-mu yang sebenarnya. Untuk logo, kamu bisa mengganti URL gambar Flaticon tersebut dengan logo kustommu sendiri.
