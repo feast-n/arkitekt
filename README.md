@@ -54,7 +54,7 @@ cd arkitekt
 Pro-tip: Gunakan ekstensi "Live Server" di VS Code untuk pengalaman pengembangan yang lebih efisien.📁 Struktur ProyekStruktur direktori dirancang agar modular dan mudah dipahami:Plaintextarkitekt/
 ```
 ├── assets/
-│
+│   └── (images...)
 ├── css/
 │   └── style.css               # Penyesuaian gaya khusus[cite: 9]
 ├── js/
